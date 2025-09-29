@@ -67,9 +67,7 @@ export const login = async (req, res) => {
     }
 
     const pool = getpool();
-    const [user] = await pool.query("SELECT * FROM users WHERE email=?", [
-      email,
-    ]);
+    const [user] = await pool.query("SELECT * FROM users WHERE email=?", [email]);
 
     if (user.length === 0) {
       return res.json({ success: false, message: "No user found" });
@@ -77,22 +75,26 @@ export const login = async (req, res) => {
 
     const dbUser = user[0];
     const valid = await bcrypt.compare(password, dbUser.password);
-
-    if (!valid) {
-      return res.json({ success: false, message: "Invalid Password" });
-    }
+    if (!valid) return res.json({ success: false, message: "Invalid Password" });
 
     // Generate JWT
     const token = jwt.sign(
-      { id: dbUser.id, email: dbUser.email, role: dbUser.role },
+      { id: dbUser.id, email: dbUser.email, name: dbUser.name, role: dbUser.role },
       process.env.JWT_SECRET,
-      { expiresIn: "1h" }
+      { expiresIn: "1d" } // longer expiry
     );
+
+    // Set cookie
+    res.cookie("token", token, {
+      httpOnly: true,
+      secure: false, // set to true in production with HTTPS
+      sameSite: "strict",
+      maxAge: 24 * 60 * 60 * 1000, // 1 day
+    });
 
     res.json({
       success: true,
       message: "Login successful",
-      token,
       user: {
         id: dbUser.id,
         name: dbUser.name,
@@ -106,12 +108,14 @@ export const login = async (req, res) => {
   }
 };
 
+
 export const logout = async (req, res) => {
   try {
-    // For JWT, logout = frontend deletes the token.
+    res.clearCookie("token", { httpOnly: true, sameSite: "strict" });
     res.json({ success: true, message: "Logged out successfully" });
   } catch (error) {
     console.error("Error in logout:", error);
     res.json({ success: false, message: "Internal server error" });
   }
 };
+

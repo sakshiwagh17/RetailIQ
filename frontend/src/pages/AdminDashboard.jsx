@@ -1,7 +1,7 @@
 
 
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import axiosInstance from '../lib/axios'
 
 const AdminDashboard = () => {
   const [counts, setCounts] = useState(null)
@@ -15,13 +15,13 @@ const AdminDashboard = () => {
         setLoading(true)
         
         // Fetch counts
-        const countsResponse = await axios.get('/admin/getCounts')
+        const countsResponse = await axiosInstance.get('/admin/getCounts')
         if (countsResponse.status === 200) {
           setCounts(countsResponse.data.data)
         }
 
         // Fetch users and stores
-        const usersResponse = await axios.get('/admin/getusers')
+        const usersResponse = await axiosInstance.get('/admin/getusers')
         if (usersResponse.status === 200) {
           setUserStoreData(usersResponse.data.data)
         }

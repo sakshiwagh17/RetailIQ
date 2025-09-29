@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Eye, EyeOff, Mail, Lock, User, MapPin } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axiosInstance from "../lib/axios";
 
 const Register = () => {
@@ -12,6 +12,7 @@ const Register = () => {
   });
   const [errors, setErrors] = useState({});
   const [showPassword, setShowPassword] = useState(false);
+  const navigate=useNavigate();
 
   const handleChange = (e) => {
     setFormData({
@@ -39,6 +40,7 @@ const Register = () => {
 
     if (Object.keys(newErrors).length === 0) {
       console.log("Form Submitted", formData);
+      navigate('/login');
     }
   };
 
