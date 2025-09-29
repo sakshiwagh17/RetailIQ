@@ -13,7 +13,7 @@ export const Navbar = () => {
   useEffect(() => {
     const checkAuthStatus = async () => {
       try {
-        const resp = await axios.get('/api/auth/me')
+        const resp = await axios.get('/user/me')
         if(resp.status === 200){
           setloggedIn(true)
           const name = resp.data.data.user.name;
@@ -44,22 +44,21 @@ export const Navbar = () => {
   }
 
   return (
-    <div className='bg-amber-400 flex text-xl font-semibold py-4 justify-between align-middle px-4'>
-    <Link to="/" className="hover:text-amber-800 transition-colors">
-        <p>RateDukaan</p>
+    <div className='bg-green-400 flex text-xl font-semibold py-4 justify-between align-middle px-4'>
+    <Link to="/" className="hover:text-green-800 transition-colors">
+        <p>RetailIQ</p>
     </Link>
     <div className='align-middle flex'>
         <input type="text" name="search" id="search" className='text-md  p-0.5 text-center border-2 border-black rounded-2xl' placeholder='Gupta Sweets' />
-        <button type='submit' className='px-4 rounded-full hover:bg-amber-200'><Search/></button>
+        <button type='submit' className='px-4 rounded-full hover:bg-green-200'><Search/></button>
     </div>
     <ul className='flex gap-8'>
-        <li><Link to="/" className="hover:text-amber-800 transition-colors">Home</Link></li>
-        <li><Link to="/about" className="hover:text-amber-800 transition-colors">About</Link></li>
+        <li><Link to="/" className="hover:text-green-800 transition-colors">Home</Link></li>
         {loggedIn ? (
           <li className="relative">
             <button 
               onClick={() => setShowDropdown(!showDropdown)}
-              className="flex items-center gap-1 text-amber-800 font-bold hover:text-amber-900 transition-colors"
+              className="flex items-center gap-1 text-green-800 font-bold hover:text-green-900 transition-colors"
             >
               Welcome, {userName}
               <ChevronDown className="h-4 w-4" />
@@ -71,7 +70,7 @@ export const Navbar = () => {
                 {role === "admin" && (
                   <Link 
                     to="/AdminDashboard" 
-                    className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-amber-50 transition-colors"
+                    className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-green-50 transition-colors"
                     onClick={() => setShowDropdown(false)}
                   >
                     <User className="h-4 w-4" />
@@ -81,7 +80,7 @@ export const Navbar = () => {
                 {role === "admin" && (
                   <Link 
                     to="/register" 
-                    className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-amber-50 transition-colors"
+                    className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-green-50 transition-colors"
                     onClick={() => setShowDropdown(false)}
                   >
                     <User className="h-4 w-4" />
@@ -91,7 +90,7 @@ export const Navbar = () => {
                 {role === "user" && (
                   <Link 
                     to="/RegisterShop" 
-                    className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-amber-50 transition-colors"
+                    className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-green-50 transition-colors"
                     onClick={() => setShowDropdown(false)}
                   >
                     <User className="h-4 w-4" />
@@ -101,7 +100,7 @@ export const Navbar = () => {
                 {role === "store_owner" && (
                   <Link 
                     to="/ShopDashboard" 
-                    className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-amber-50 transition-colors"
+                    className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-green-50 transition-colors"
                     onClick={() => setShowDropdown(false)}
                   >
                     <User className="h-4 w-4" />
@@ -130,7 +129,7 @@ export const Navbar = () => {
             )}
           </li>
         ) : (
-          <li><Link to="/login" className="hover:text-amber-800 transition-colors">Login</Link></li>
+          <li><Link to="/login" className="hover:text-green-800 transition-colors">Login</Link></li>
         )}
     </ul>
     

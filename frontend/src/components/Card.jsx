@@ -57,7 +57,7 @@ export const Card = ({ shopData }) => {
 
     try {
       setIsSubmitting(true)
-      const response = await axios.post('/api/ratings/addRating', {
+      const response = await axios.post('/ratings/addRating', {
         rating,
         shopId: shopData.id,
       })
@@ -78,13 +78,13 @@ export const Card = ({ shopData }) => {
 
   return (
     <div className="flex justify-center">
-      <div className="card-body flex flex-col justify-between border-2 p-6 border-amber-600 rounded-2xl w-72 h-80 text-center bg-amber-50 shadow-lg hover:shadow-xl transition-shadow duration-300">
+      <div className="card-body flex flex-col justify-between border-2 p-6 border-green-600 rounded-2xl w-72 h-80 text-center bg-green-50 shadow-lg hover:shadow-xl transition-shadow duration-300">
         <div className="space-y-2">
           <p className="text-2xl font-bold text-gray-800">{shopData.name}</p>
           <p className="text-md text-gray-600">{shopData.address}</p>
         </div>
 
-        <p className="text-lg font-bold text-amber-700">
+        <p className="text-lg font-bold text-green-700">
           {loadingAvgRating
             ? 'Loading rating...'
             : averageRating > 0
@@ -104,7 +104,7 @@ export const Card = ({ shopData }) => {
             <button
               onClick={() => setShowRatingInput(true)}
               disabled={loadingAvgRating}
-              className="w-full border-2 border-amber-600 bg-amber-600 text-white rounded-xl py-2 px-4 font-medium hover:bg-amber-700 hover:border-amber-700 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full border-2 border-green-600 bg-green-600 text-white rounded-xl py-2 px-4 font-medium hover:bg-green-700 hover:border-green-700 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               Add Rating
             </button>

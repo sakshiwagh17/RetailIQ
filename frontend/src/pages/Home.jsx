@@ -46,7 +46,7 @@ const Home = () => {
           {/* Main Hero Content */}
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-              Welcome to <span className="text-amber-600">RetailIQ</span>
+              Welcome to <span className="text-green-600">RetailIQ</span>
             </h1>
             
             {/* Tagline */}
@@ -100,7 +100,7 @@ const Home = () => {
               <p className="text-red-600 text-lg">{error}</p>
               <button 
                 onClick={() => window.location.reload()} 
-                className="mt-4 px-4 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700 transition-colors"
+                className="mt-4 px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors"
               >
                 Try Again
               </button>

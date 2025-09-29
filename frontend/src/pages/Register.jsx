@@ -24,7 +24,7 @@ const Register = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("/auth/register", formData);
+      const response = await axios.post("/user/register", formData);
       console.log(response);
     } catch (error) {
       console.log("Error in register", error);
@@ -74,7 +74,7 @@ const Register = () => {
                   onChange={handleChange}
                   className={`block w-full pl-10 pr-3 py-2.5 border ${
                     errors.username ? "border-red-500" : "border-gray-300"
-                  } rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-colors`}
+                  } rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors`}
                   placeholder="Enter your username"
                 />
               </div>
@@ -103,7 +103,7 @@ const Register = () => {
                   onChange={handleChange}
                   className={`block w-full pl-10 pr-3 py-2.5 border ${
                     errors.email ? "border-red-500" : "border-gray-300"
-                  } rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-colors`}
+                  } rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors`}
                   placeholder="Enter your email"
                 />
               </div>
@@ -131,7 +131,7 @@ const Register = () => {
                   onChange={handleChange}
                   className={`block w-full pl-10 pr-3 py-2.5 border ${
                     errors.address ? "border-red-500" : "border-gray-300"
-                  } rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-colors`}
+                  } rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors`}
                   placeholder="Enter your address"
                 />
               </div>
@@ -160,7 +160,7 @@ const Register = () => {
                   onChange={handleChange}
                   className={`block w-full pl-10 pr-10 py-2.5 border ${
                     errors.password ? "border-red-500" : "border-gray-300"
-                  } rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-colors`}
+                  } rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors`}
                   placeholder="Create a password"
                 />
                 <button
@@ -183,7 +183,7 @@ const Register = () => {
             {/* Submit */}
             <button
               type="submit"
-              className="w-full flex justify-center py-2.5 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-amber-600 hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500 transition-colors duration-200"
+              className="w-full flex justify-center py-2.5 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors duration-200"
             >
               Create Account
             </button>
@@ -195,7 +195,7 @@ const Register = () => {
               Already have an account?{" "}
               <Link
                 to="/login"
-                className="font-medium text-amber-600 hover:text-amber-500 transition-colors"
+                className="font-medium text-green-600 hover:text-green-500 transition-colors"
               >
                 Sign in here
               </Link>
