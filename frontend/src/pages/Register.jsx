@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Eye, EyeOff, Mail, Lock, User, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import axiosInstance from "../lib/axios";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -24,7 +24,7 @@ const Register = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("/user/register", formData);
+      const response = await axiosInstance.post("/user/register", formData);
       console.log(response);
     } catch (error) {
       console.log("Error in register", error);
@@ -43,7 +43,7 @@ const Register = () => {
   };
 
   return (
-    <div className="h-screen bg-gradient-to-br from-amber-50 to-orange-100 flex items-center justify-center px-4 sm:px-6 lg:px-8">
+    <div className="h-screen bg-gradient-to-br from-amber-50 to-green-100 flex items-center justify-center px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full">
         <div className="text-center mb-6">
           <h2 className="text-3xl font-extrabold text-gray-900">

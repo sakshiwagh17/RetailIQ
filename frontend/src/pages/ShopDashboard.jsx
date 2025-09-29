@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import axiosInstance from '../lib/axios'
 
 const ShopDashboard = () => {
   const [shopData, setShopData] = useState(null)
@@ -10,7 +10,7 @@ const ShopDashboard = () => {
     const fetchShopData = async () => {
       try {
         setLoading(true)
-        const response = await axios.post('/shops/storesratings')
+        const response = await axiosInstance.post('/shops/storesratings')
         
         if (response.status === 200) {
           setShopData(response.data.data)

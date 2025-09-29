@@ -6,9 +6,11 @@ import Home from "./pages/Home";
 import RegisterShop from "./pages/RegisterShop";
 import ShopDashboard from "./pages/shopDashboard";
 import AdminDashboard from "./pages/AdminDashboard";
+import { Navbar } from "./components/Navbar";
 const App = () => {
   return (
     <div>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />

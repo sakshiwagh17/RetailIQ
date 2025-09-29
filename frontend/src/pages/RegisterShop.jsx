@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Store, MapPin } from 'lucide-react'
-import axios from 'axios'
+import axiosInstance from '../lib/axios'
 
 const RegisterShop = () => {
   const navigate = useNavigate()
@@ -51,7 +51,7 @@ const RegisterShop = () => {
     if (Object.keys(newErrors).length === 0) {
       setIsLoading(true)
       try {
-        const response = await axios.post('/shops/register', {
+        const response = await axiosInstance.post('/shops/register', {
           shopName: formData.shopName,
           shopAddress: formData.shopAddress
         })

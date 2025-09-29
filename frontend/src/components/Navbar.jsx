@@ -44,7 +44,7 @@ export const Navbar = () => {
   }
 
   return (
-    <div className='bg-green-400 flex text-xl font-semibold py-4 justify-between align-middle px-4'>
+    <div className='bg-green-50 flex text-xl font-semibold py-4 justify-between align-middle px-4'>
     <Link to="/" className="hover:text-green-800 transition-colors">
         <p>RetailIQ</p>
     </Link>

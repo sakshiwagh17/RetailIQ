@@ -1,6 +1,4 @@
 import mysql from "mysql2/promise";
-import { ApiError } from "../utils/ApiError.js";
-
 
 let pool ;
 
@@ -22,7 +20,6 @@ const connectDB = async () => {
     connection.release();
   } catch (error) {
     console.log("Error in connecting Database!");
-    throw ApiError(500,"Database connection Error");
   }
 
 };

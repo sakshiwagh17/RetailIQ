@@ -39,7 +39,7 @@ const Home = () => {
     fetchShops()
   }, [])
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50">
+    <div className="min-h-screen bg-gradient-to-br from-green-50 via-green-50 to-yellow-50">
       {/* Hero Section */}
       <div className="relative overflow-hidden">
         <div className="container mx-auto px-4 pt-16 pb-12">
